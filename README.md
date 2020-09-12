@@ -1,3 +1,3 @@
-#Oleksii Kulyk
-#PID 4551604
-#COP3330
+#Oleksii Kulyk\n
+#PID 4551604\n
+#COP3330\n
