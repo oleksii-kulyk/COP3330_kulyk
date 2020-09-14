@@ -7,6 +7,7 @@ public class Main {
         // Create a Scanner object
         Scanner keyboard = new Scanner(System.in);
         // Entering a string of four digit integer
+
     }
 
 
