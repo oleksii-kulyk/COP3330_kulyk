@@ -1,5 +1,5 @@
 /Books/
-out
-.idea
+out/
+.idea/
 .vscode/
 *.iml
