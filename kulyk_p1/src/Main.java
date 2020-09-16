@@ -8,7 +8,7 @@ public class Main {
         Scanner keyboard = new Scanner(System.in);
         // User choice
         System.out.println("To Encrypt press 'e'\nTo Decrypt press 'd'");
-        char choice = keyboard.next().charAt(0);
+        char choice = keyboard.nextLine().charAt(0);
         // Reading data
         System.out.println("Now enter your data");
         String data = keyboard.nextLine();
@@ -16,15 +16,15 @@ public class Main {
         // Encrypting and Printing
         if (choice == 'e') {
             Encrypter e = new Encrypter();
-            e.data = e.encrypt(data);
-            System.out.println(e.data);
+            data = e.encrypt(data);
+            System.out.println(data);
         }
 
         // Decrypting and Printing
         if (choice == 'd') {
             Decrypter d = new Decrypter();
-            d.data = d.decrypt(data);
-            System.out.println(d.data);
+            data = d.decrypt(data);
+            System.out.println(data);
         }
 
         // Test case from professor
@@ -38,7 +38,6 @@ public class Main {
 }
 
 class Encrypter {
-    String data;
     public static String encrypt(String data) {
         char[] datum = data.toCharArray();
         String ones = Integer.toString((datum[3] + 7 - '0') % 10);
@@ -50,7 +49,6 @@ class Encrypter {
 }
 
 class Decrypter{
-    String data;
     public static String decrypt (String data){
         char[] datum = data.toCharArray();
         String ones = Integer.toString (Math.floorMod((datum[3] - 7 - '0'), 10));
