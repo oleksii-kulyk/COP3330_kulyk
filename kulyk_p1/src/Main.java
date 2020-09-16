@@ -19,11 +19,20 @@ public class Main {
 
 class Encrypter{
     public static String encrypt (String data){
-        int datum = Integer.parseInt(data);
-        String ones = Integer.toString ((datum % 10 + 7) % 10);
-        String tens = Integer.toString (((datum / 10) % 10 + 7) % 10);
-        String hunds =Integer.toString (((datum / 100) % 10 + 7) % 10);
-        String thouds=Integer.toString (((datum / 1000) % 10 + 7) % 10);
+        char[] datum = data.toCharArray();
+        String ones = Integer.toString ((datum[3] + 7 - '0') % 10);
+        String tens = Integer.toString ((datum[2] + 7 - '0') % 10);
+        String hunds =Integer.toString ((datum[1] + 7 - '0') % 10);
+        String thouds=Integer.toString ((datum[0] + 7 - '0') % 10);
+        return tens + ones + thouds + hunds;
+    }
+
+    public static String decrypt (String data){
+        char[] datum = data.toCharArray();
+        String ones = Integer.toString (Math.floorMod((datum[3] - 7 - '0'), 10));
+        String tens = Integer.toString (Math.floorMod((datum[2] - 7 - '0'), 10));
+        String hunds =Integer.toString (Math.floorMod((datum[1] - 7 - '0'), 10));
+        String thouds=Integer.toString (Math.floorMod((datum[0] - 7 - '0'), 10));
         return tens + ones + thouds + hunds;
     }
 }
